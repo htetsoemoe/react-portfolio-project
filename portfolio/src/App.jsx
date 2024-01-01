@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import useMediaQuery from './hooks/useMediaQuery'
 import Navbar from './scenes/Navbar'
+import DotGroup from './scenes/DotGroup'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -30,6 +31,14 @@ const App = () => {
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
+      <div className="w-5/6 md:h-full mx-auto">
+        {isDesktop && (
+          <DotGroup 
+            selectedPage={selectedPage}
+            setSelectedPage={setSelectedPage}
+          />
+        )}
+      </div>
     </div>
   )
 }
