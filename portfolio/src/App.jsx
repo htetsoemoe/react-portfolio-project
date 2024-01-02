@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import useMediaQuery from './hooks/useMediaQuery'
 import Navbar from './scenes/Navbar'
 import DotGroup from './scenes/DotGroup'
+import { motion } from 'framer-motion'
+import Landing from './scenes/Landing'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -26,18 +28,25 @@ const App = () => {
 
   return (
     <div className='app bg-deep-blue'>
-      <Navbar 
+      <Navbar
         isTopOfPage={isTopOfPage}
         selectedPage={selectedPage}
         setSelectedPage={setSelectedPage}
       />
       <div className="w-5/6 md:h-full mx-auto">
         {isDesktop && (
-          <DotGroup 
+          <DotGroup
             selectedPage={selectedPage}
             setSelectedPage={setSelectedPage}
           />
         )}
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("home")}
+        >
+          <Landing setSelectedPage={setSelectedPage} />
+        </motion.div>
       </div>
     </div>
   )
