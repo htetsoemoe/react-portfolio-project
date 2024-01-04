@@ -4,6 +4,8 @@ import Navbar from './scenes/Navbar'
 import DotGroup from './scenes/DotGroup'
 import { motion } from 'framer-motion'
 import Landing from './scenes/Landing'
+import LineGradient from './components/LineGradient'
+import MySkills from './scenes/MySkills'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -19,11 +21,10 @@ const App = () => {
       if (window.scrollY !== 0) {
         setIsTopOfPage(false)
       }
-      window.addEventListener("scroll", handleScroll)
-
-      // cleanup function
-      return () => window.removeEventListener("scroll", handleScroll)
     }
+    window.addEventListener("scroll", handleScroll)
+    // cleanup function
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
@@ -48,6 +49,17 @@ const App = () => {
           <Landing setSelectedPage={setSelectedPage} />
         </motion.div>
       </div>
+      <LineGradient height='mt-40' />
+      <div className="w-5/6 mx-auto md:h-full">
+          <motion.div
+            margin="0 0 -200px 0"
+            amount="all"
+            onViewportEnter={() => setSelectedPage("skills")}
+          >
+            <MySkills />
+          </motion.div>
+      </div>
+      <LineGradient height='mt-40' />
     </div>
   )
 }
