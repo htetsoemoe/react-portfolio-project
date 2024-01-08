@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import Landing from './scenes/Landing'
 import LineGradient from './components/LineGradient'
 import MySkills from './scenes/MySkills'
+import Projects from './scenes/Projects'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -49,7 +50,8 @@ const App = () => {
           <Landing setSelectedPage={setSelectedPage} />
         </motion.div>
       </div>
-      <LineGradient height='mt-40' />
+      {/* <LineGradient height={'mt-60'} /> */}
+      <div className={`h-0.5 w-full md:mt-52 bg-gradient-rainblue`}></div>
       <div className="w-5/6 mx-auto md:h-full">
           <motion.div
             margin="0 0 -200px 0"
@@ -59,7 +61,17 @@ const App = () => {
             <MySkills />
           </motion.div>
       </div>
-      <LineGradient height='mt-40' />
+      {/* <LineGradient height={'mt-96'} /> */}
+      <div className={`h-0.5 w-full md:mt-52 bg-gradient-rainblue`}></div>
+      <div className="w-5/6 mx-auto">
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("projects")}
+        >
+          <Projects />
+        </motion.div>
+      </div>
     </div>
   )
 }
