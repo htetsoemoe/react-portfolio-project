@@ -7,6 +7,7 @@ import Landing from './scenes/Landing'
 import LineGradient from './components/LineGradient'
 import MySkills from './scenes/MySkills'
 import Projects from './scenes/Projects'
+import Testimonials from './scenes/Testimonials'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -53,13 +54,13 @@ const App = () => {
       {/* <LineGradient height={'mt-60'} /> */}
       <div className={`h-0.5 w-full md:mt-52 bg-gradient-rainblue`}></div>
       <div className="w-5/6 mx-auto md:h-full">
-          <motion.div
-            margin="0 0 -200px 0"
-            amount="all"
-            onViewportEnter={() => setSelectedPage("skills")}
-          >
-            <MySkills />
-          </motion.div>
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("skills")}
+        >
+          <MySkills />
+        </motion.div>
       </div>
       {/* <LineGradient height={'mt-96'} /> */}
       <div className={`h-0.5 w-full md:mt-52 bg-gradient-rainblue`}></div>
@@ -70,6 +71,16 @@ const App = () => {
           onViewportEnter={() => setSelectedPage("projects")}
         >
           <Projects />
+        </motion.div>
+      </div>
+      <div className={`h-0.5 w-full md:mt-32 bg-gradient-rainblue`}></div>
+      <div className="w-5/6 mx-auto">
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("testimonials")}
+        >
+          <Testimonials />
         </motion.div>
       </div>
     </div>
