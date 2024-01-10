@@ -8,6 +8,8 @@ import LineGradient from './components/LineGradient'
 import MySkills from './scenes/MySkills'
 import Projects from './scenes/Projects'
 import Testimonials from './scenes/Testimonials'
+import Contact from './scenes/Contact'
+import Footer from './scenes/Footer'
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState("home")
@@ -83,6 +85,17 @@ const App = () => {
           <Testimonials />
         </motion.div>
       </div>
+      <div className={`h-0.5 w-full md:mt-32 bg-gradient-rainblue`}></div>
+      <div className="w-5/6 mx-auto md:h-full">
+        <motion.div
+          margin="0 0 -200px 0"
+          amount="all"
+          onViewportEnter={() => setSelectedPage("contacts")}
+        >
+          <Contact />
+        </motion.div>
+      </div>
+      <Footer />
     </div>
   )
 }
